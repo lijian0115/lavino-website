@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none"
+     stroke="#d96a08" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 齿轮：定制 / OEM 生产 -->
+  <circle cx="24" cy="24" r="12.5" />
+  <circle cx="24" cy="24" r="4.5" />
+  <path d="M36.5 24h5M24 36.5v5M11.5 24h-5M24 11.5v-5M32.8 32.8l3.6 3.6M15.2 32.8l-3.6 3.6M15.2 15.2l-3.6-3.6M32.8 15.2l3.6-3.6" />
+</svg>

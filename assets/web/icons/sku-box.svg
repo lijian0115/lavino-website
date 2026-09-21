@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none"
+     stroke="#d96a08" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 立体包装箱：SKU 现货型号 -->
+  <path d="M24 8L41 17L24 26L7 17Z" />
+  <path d="M7 17v16l17 9V26" />
+  <path d="M41 17v16l-17 9" />
+</svg>

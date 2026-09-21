@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none"
+     stroke="#d96a08" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 客服耳麦：售后支持 -->
+  <path d="M14 28v-7a10 10 0 0 1 20 0v7" />
+  <rect x="9" y="26" width="10" height="14" rx="5" />
+  <rect x="29" y="26" width="10" height="14" rx="5" />
+  <path d="M34 40v1.5a5 5 0 0 1-5 5h-4" />
+</svg>

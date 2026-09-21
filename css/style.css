@@ -1,0 +1,954 @@
+/* ============================================================
+   Qingdao Lavino Equipment & Parts Co., Ltd. — Site Styles
+   Warm, product-market feel. Blue / Orange / Green / Light-yellow.
+   ============================================================ */
+
+:root {
+  --blue: #1f5fa8;
+  --blue-dark: #15467d;
+  --blue-soft: #e8f1fb;
+  --orange: #ef7d1a;
+  --orange-dark: #d96a08;
+  --green: #2e9e5b;
+  --green-dark: #247a46;
+  --yellow: #fff6df;
+  --yellow-2: #fff0c4;
+  --ink: #2b2f36;
+  --muted: #5d6672;
+  --line: #e3e8ef;
+  --bg: #f6f8fb;
+  --white: #ffffff;
+  --shadow: 0 6px 22px rgba(31, 45, 70, 0.08);
+  --shadow-hover: 0 12px 30px rgba(31, 45, 70, 0.14);
+  --radius: 14px;
+  --maxw: 1200px;
+  --nav-h: 110px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--orange-dark); }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Top bar (language + contact quick) ---------- */
+.topbar {
+  background: var(--blue-dark);
+  color: #cfe0f5;
+  font-size: 13px;
+}
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+}
+.topbar a { color: #cfe0f5; }
+.topbar a:hover { color: #fff; }
+.topbar .tb-left span { margin-right: 14px; }
+
+/* language switcher: 4 parallel buttons, no dropdown */
+.lang-switch {
+  display: inline-flex;
+  gap: 6px;
+}
+.lang-btn {
+  border: 1px solid rgba(255,255,255,0.35);
+  background: transparent;
+  color: #d8e6f7;
+  padding: 3px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.2;
+  transition: all .15s ease;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.lang-btn .flag { height: 14px; width: auto; border-radius: 2px; display: inline-block; }
+.lang-btn:hover { background: rgba(255,255,255,0.12); color:#fff; }
+.lang-btn.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ---------- Header / nav ---------- */
+header.site {
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand img { height: 92px; width: auto; }
+.brand .brand-left { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.brand .brand-wordmark { height: 44px; width: auto; }
+.brand .brand-tagline { font-size: 12px; font-weight: 600; letter-spacing: 3.5px; color: #3a3f45; }
+.brand img.brand-mark { height: 58px; width: auto; }
+@media (max-width: 720px) {
+  .brand .brand-wordmark { height: 30px; }
+  .brand .brand-tagline { font-size: 9px; letter-spacing: 2px; }
+  .brand img.brand-mark { height: 38px; }
+}
+
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav a {
+  color: var(--ink);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  position: relative;
+}
+.nav a:hover { background: var(--blue-soft); color: var(--blue-dark); }
+.nav a.active { color: var(--orange-dark); }
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 14px; right: 14px; bottom: 4px;
+  height: 3px;
+  background: var(--orange);
+  border-radius: 3px;
+}
+
+.nav-toggle {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  font-size: 26px; color: var(--blue-dark);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orange);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform .12s ease, background .15s ease;
+  font-family: inherit;
+}
+.btn:hover { background: var(--orange-dark); color:#fff; transform: translateY(-1px); }
+.btn-blue { background: var(--blue); }
+.btn-blue:hover { background: var(--blue-dark); }
+.btn-green { background: var(--green); }
+.btn-green:hover { background: var(--green-dark); }
+.btn-ghost {
+  background: #fff; color: var(--blue-dark);
+  border: 2px solid var(--blue);
+}
+.btn-ghost:hover { background: var(--blue-soft); }
+.btn-sm { padding: 8px 16px; font-size: 14px; }
+
+/* ---------- Hero (Home) ---------- */
+.hero {
+  position: relative;
+  color: #fff;
+  background-color: #123a63;
+  /* 首屏主视觉：优先 WebP（省一半体积），不支持的浏览器自动回退 JPG。
+     image-set 是「二选一」，不会把两份都下载，兜底不增加实际流量。 */
+  background-image: url('../assets/web/hero.jpg');
+  background-image: image-set(url('../assets/web/hero.webp') type('image/webp'),
+                              url('../assets/web/hero.jpg') type('image/jpeg'));
+  overflow: hidden;
+  min-height: clamp(500px, 50vw, 78vh);
+  display: flex;
+  align-items: center;
+}
+/* 首屏大图：真实 <img> 铺满（2026-09-21 从 CSS 背景图改过来，
+   这样管理台能换图、能给 WebP/srcset，也能用 fetchpriority 优化 LCP）。
+   ⚠️ 图片在底层、文字在上层，所以正文容器要抬 z-index。 */
+/* ⚠️ 层叠顺序：图片(0) → 暗色遮罩(1) → 文字(2)。
+   ::before 会插在 .hero 的第一个子盒位置，不显式指定 z-index 的话图片会盖住遮罩，
+   白字压在亮色照片上会看不清。 */
+.hero > picture { position: absolute; inset: 0; display: block; z-index: 0; }
+.hero-bg { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
+/* 手机上是一屏竖图，用不到桌面那张大图 —— 由 srcset 的 sizes="100vw" 自动挑小尺寸，
+   不需要再单独写媒体查询覆盖背景图。 */
+.hero::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(15,40,75,0.78) 0%, rgba(15,40,75,0.45) 45%, rgba(15,40,75,0.15) 100%);
+}
+.hero .container { position: relative; z-index: 2; padding: 60px 20px; }
+.hero h1 {
+  font-size: clamp(28px, 4.4vw, 46px);
+  margin: 0 0 14px;
+  font-weight: 800;
+  text-shadow: 0 2px 10px rgba(0,0,0,.35);
+  max-width: 760px;
+}
+.hero p {
+  font-size: clamp(15px, 2vw, 19px);
+  margin: 0 0 26px;
+  max-width: 620px;
+  text-shadow: 0 1px 6px rgba(0,0,0,.4);
+}
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-badges {
+  margin-top: 26px;
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.hero-badges .badge {
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  backdrop-filter: blur(2px);
+}
+
+.home-intro { padding: 22px 0; }
+.home-intro .home-intro-text {
+  color: var(--muted);
+  font-size: 22px;
+  line-height: 1.7;
+}
+.home-intro-text p { margin: 0 0 1.15em; }
+.home-intro-text p:last-child { margin-bottom: 0; }
+/* 类别段：CSS 大黑点（替代小号文本符号 •） */
+.home-intro-text p.li {
+  position: relative;
+  padding-left: 40px;
+}
+.home-intro-text p.li::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0.52em;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #000;
+}
+.home-intro-text .co {
+  color: #B00; /* 标红 */
+  font-weight: 800;
+  font-size: 1.18em; /* 加大 */
+}
+.home-intro-text .cat {
+  color: #000; /* 标黑 */
+  font-weight: 800;
+  font-size: 1.12em; /* 加大 */
+}
+@media (max-width: 720px) {
+  .home-intro .home-intro-text { font-size: 18px; }
+}
+
+/* ---------- Sections ---------- */
+.section { padding: 56px 0; }
+.section.alt { background: var(--white); }
+.section-title {
+  text-align: center;
+  margin-bottom: 34px;
+}
+.section-title h2 {
+  font-size: clamp(24px, 3.4vw, 34px);
+  color: var(--blue-dark);
+  margin: 0 0 8px;
+  font-weight: 800;
+}
+.section-title .lead {
+  color: var(--muted);
+  max-width: 720px;
+  margin: 0 auto;
+}
+/* 首页「Why Choose Us?」标题：字号加大、字重加强 */
+.section-title.big { margin-bottom: 40px; }
+.section-title.big h2 {
+  font-size: clamp(30px, 4.4vw, 46px);
+  font-weight: 900;
+  letter-spacing: -.6px;
+}
+
+/* Home category cards */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.cat-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease;
+  display: flex; flex-direction: column;
+}
+.cat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.cat-card .cat-img {
+  height: 260px;
+  background: #eef2f7 center/cover no-repeat;
+}
+.cat-card .cat-body { padding: 20px; flex: 1; display:flex; flex-direction:column; }
+.cat-card h3 { margin: 0 0 8px; color: var(--blue-dark); font-size: 20px; }
+.cat-card p { color: var(--muted); margin: 0 0 16px; flex: 1; }
+.cat-card .tag {
+  display:inline-block; font-size:12px; font-weight:700;
+  color: var(--orange-dark); background: var(--yellow);
+  padding: 3px 10px; border-radius: 20px; margin-bottom: 12px;
+}
+
+/* Home highlights strip */
+.home-strip {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 18px;
+  margin-top: 8px;
+}
+.home-strip .item {
+  background: var(--yellow);
+  border-radius: 12px;
+  padding: 24px 18px 22px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.home-strip .item .ico {
+  width: 60px; height: 60px; flex: 0 0 auto; border-radius: 50%;
+  background: #fff; box-shadow: 0 3px 10px rgba(31,45,70,.10);
+  display: flex; align-items: center; justify-content: center;
+}
+.home-strip .item .ico img { width: 34px; height: 34px; display: block; }
+.home-strip .item .lbl {
+  font-size: 18px; font-weight: 800; color: var(--blue-dark); line-height: 1.42;
+}
+
+/* ---------- About ---------- */
+/* About 板块：用「工厂/整机 + 四组滤清器圆图」的大图做背景，正文放在半透明白色面板上。
+   ⚠️ 背景用「按宽度整幅铺开」= background-size: 100% auto（不是 cover！）
+   —— cover 会因为板块比图片高得多而把整图放大 1.7~2.1 倍，把图片左右两侧的
+      滤清器圆图直接推出画面（中文约 810px 高、英文/西语/俄语约 980px 高，
+      文字越长板块越高、放得越大 → 换语言后两侧图片就"消失"了）。
+   整幅铺开则任何语言/任何宽度都不会被裁；图片高度不足的部分由同色底 +
+   图片自带的底部渐隐接续（渐隐是烘进 jpg 里的，改图时别丢）。
+   ⚠️ 图宽高比 = 2.325（2048×881），改图务必同步 .about-hero 的 media query 除数。
+   ⚠️ 图必须是高清源：素材在桌面 `Lavino 网站素材\Codex 图像…09_32_26.png`（2048×768），
+      docx 里内嵌的那份只有 1267 宽，用它当 1900px 宽的背景会被放大 1.5 倍 → 圆图发虚 */
+.about-hero {
+  position: relative;
+  background-color: #f4f7fb;                    /* 与 about-banner.jpg 底部渐隐终点同色 */
+  /* 背景图：优先 WebP，不支持则回退 JPG */
+  background-image: url('../assets/web/about-banner.jpg');
+  background-image: image-set(url('../assets/web/about-banner.webp') type('image/webp'),
+                              url('../assets/web/about-banner.jpg') type('image/jpeg'));
+  background-position: center top;
+  background-size: min(100%, 2048px) auto;      /* 上限=图片原始宽度：宽屏也不会被放大（不糊） */
+  background-repeat: no-repeat;
+  padding: 64px 0;
+}
+.about-hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: rgba(255,255,255,.06);            /* 只留一丝提亮：原 .28 会把图片洗淡、看着发虚 */
+}
+.about-hero .container { position: relative; z-index: 1; }
+/* About 正文：单栏（原右侧工厂图已移除），限定阅读宽度后居中，把空间让给文字。
+   880px：给两侧的滤清器圆图留出位置（≥1200px 视口时圆图不会被卡片压住） */
+.about-text {
+  max-width: 880px; margin: 0 auto;
+  background: rgba(255,255,255,.93);
+  border-radius: 16px;
+  padding: 34px 38px;
+  box-shadow: 0 10px 34px rgba(20,40,70,.13);
+}
+.about-text h1 { color: var(--blue-dark); font-size: clamp(26px,3.6vw,38px); margin: 0 0 14px; }
+/* 叠加在背景图上：加字重 + 极淡投影，进一步提升可读性 */
+.about-text-body {
+  color: #16202c; font-size: 18px; line-height: 1.9; margin: 0;
+  font-weight: 500; text-shadow: 0 1px 0 rgba(255,255,255,.6);
+}
+.about-text-body p { margin: 0 0 1.05em; }
+.about-text-body p:last-child { margin-bottom: 0; }
+.about-text-body strong { font-weight: 800; color: #111; }
+/* 公司名：标红 + 加大 */
+.about-text-body .co { color: #B00; font-weight: 800; font-size: 1.16em; }
+/* 两个产品类别：蓝色 + 加粗加大 */
+.about-text-body .cat { color: var(--blue-dark); font-weight: 800; font-size: 1.1em; }
+.about-text-body .n { color: var(--muted); font-weight: 700; }
+/* 类别行：上方留白、下方紧接说明文字 */
+.about-text-body p.cat-line,
+/* 构建时会把类别行从 <p> 提升为 <h2>（页面原来只有 H1，层级太平），
+   这里让两种标签长得一模一样，管理端编辑时看不出差别 */
+.about-text-body h2.cat-line { margin: 1.5em 0 .4em; font-size: inherit; font-weight: inherit; color: inherit; }
+.home-intro-text strong { font-weight: 800; color: #111; }
+/* About 页 ✓ 高亮卡片：按用户要求暂时下线（文案键 adv1~adv4 仍保留），恢复时样式已就绪 */
+.adv-list { list-style: none; padding: 0; margin: 22px 0 0; display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.adv-list li {
+  background: var(--white); border:1px solid var(--line);
+  border-radius: 10px; padding: 14px 16px; font-weight: 600;
+  display:flex; gap:10px; align-items:flex-start;
+}
+.adv-list li .ic { color: var(--green); font-weight: 800; }
+
+/* ---------- Products ---------- */
+.prod-top3 {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 40px;
+}
+.prod-top3 .pt {
+  border-radius: 12px; overflow:hidden; box-shadow: var(--shadow);
+  background:#fff; display:flex; flex-direction:column;
+}
+.prod-top3 .pt .pi { height: 170px; background:#eef2f7 center/cover no-repeat; }
+.prod-top3 .pt .pb { padding: 16px; }
+.prod-top3 .pt h3 { margin: 0 0 6px; color: var(--blue-dark); }
+.prod-top3 .pt p { color: var(--muted); margin: 0; font-size: 14px; }
+
+.prod-group { margin-bottom: 46px; }
+.prod-group-head {
+  display:flex; align-items:center; gap: 14px; margin-bottom: 20px;
+  border-bottom: 3px solid var(--yellow-2); padding-bottom: 10px;
+}
+.prod-group-head .gx {
+  width: 42px; height:42px; border-radius: 10px; flex:none;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 22px; color:#fff;
+}
+.gx.blue { background: var(--blue); }
+.gx.orange { background: var(--orange); }
+.gx.green { background: var(--green); }
+.prod-group-head h2 { margin:0; color: var(--blue-dark); font-size: 24px; }
+/* 农机 / 农机配件：一行 5 个，产品名与「询价」按钮同一行，不浪费竖向空间 */
+/* 产品页容器放宽（仅产品栅格所在容器）：5 列时给每张卡更多宽度，长产品名少断行 */
+.container-wide { max-width: 1360px; }
+.prod-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+}
+.prod-card {
+  background:#fff; border:1px solid var(--line); border-radius: 12px;
+  overflow:hidden; display:flex; flex-direction:column;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.prod-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.prod-card .pimg { height: 160px; background:#eef2f7 center/cover no-repeat; }
+/* 农机卡片：图片区用 1:1（17 张产品原图基本都是方形）→ 整张显示、产品不被上下切断。
+   横向的配件组图维持原高度，不跟着改。 */
+.prod-grid-square .pimg { aspect-ratio: 1 / 1; height: auto; }
+.prod-card .pbody { padding: 12px 13px; display:flex; flex-direction:column; flex:1; }
+/* 产品名 + 询价按钮 同一行：名字靠左、按钮靠右 */
+.prod-card .prow { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.prod-card .prow h4 { flex:1; min-width:0; }
+/* 按钮做紧凑，给偏长的产品名让出宽度（5 列时卡片只有 225px） */
+.prod-card .prow .btn { flex:0 0 auto; padding:5px 9px; font-size:12px; white-space:nowrap; }
+.prod-card h4 {
+  margin: 0 0 6px; font-size: 17px; line-height: 1.3; font-weight: 800; color: var(--blue-dark);
+  overflow-wrap: break-word;   /* 兜底：整词确实放不下时才硬断 */
+  hyphens: auto;               /* 优先按语言正确断词（俄语/西语单词长，硬断很难看） */
+  -webkit-hyphens: auto;
+}
+.prod-card p { color: var(--muted); font-size: 13px; margin: 0 0 12px; flex:1; }
+.prod-card .pinq { margin-top: auto; }
+
+/* ---------- 滤清器板块 = 一整张大图（2026-09-20 用户定案，当前默认版式）----------
+   源图 1254×1254 带大量小字 → 已在左右各补 33px 边缘像素，成品 1320×1254，
+   正好等于 .prod-grid 的实测宽度（1320）。所以这里 `width:100%` 就是 1:1 显示，
+   既与上面的产品卡左右严格对齐，又不会把小字放大糊掉。
+   ⚠️ 换图必须走管理端上传（会自动做同样的补边），别手工塞一张窄图进来。 */
+
+/* ---------- 产品页 FAQ（2026-09-21）----------
+   形态故意做得"像答案"而不是"像营销"：一问一答、短句、可折叠。
+   搜索引擎和 AI 助手要的就是能被直接摘出来的答案段落。 */
+.faq { margin-top: 44px; max-width: 880px; margin-left: auto; margin-right: auto; }
+.faq h2 { font-size: clamp(20px, 2.4vw, 26px); color: var(--blue-dark); margin: 0 0 6px; }
+.faq-lead { color: var(--muted); margin: 0 0 18px; }
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.faq-item summary {
+  cursor: pointer; list-style: none; padding: 15px 18px;
+  font-weight: 700; color: var(--blue-dark); font-size: 15.5px; line-height: 1.5;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "−"; float: right; color: var(--muted); font-weight: 400; }
+.faq-item:not([open]) summary::after { content: "+"; }
+.faq-item p { margin: 0; padding: 0 18px 16px; color: var(--ink); line-height: 1.75; font-size: 14.5px; }
+@media (max-width: 640px) {
+  .faq-item summary { padding: 13px 15px; font-size: 14.5px; }
+  .faq-item p { padding: 0 15px 14px; }
+}
+
+/* ---------- 卡片图：<picture> + <img loading=lazy>（2026-09-21 起）----------
+   这三处原来是 CSS 背景图（`background: center/cover`）。
+   背景图的致命问题：**浏览器不会懒加载它** —— 屏幕外的也一起下。
+   实测产品页 30 张产品图 + 首页 3 张拼图 + 新闻封面全在首屏就下完，产品页首屏 1.35 MB。
+   换成 <img loading="lazy"> 之后只下视口附近的；顺带补上了 alt（谷歌图片搜索可见）。
+
+   容器负责"定高"（固定 height 或 aspect-ratio），图片用绝对定位铺满 + object-fit:cover，
+   这样换图/换比例都不会把卡片撑变形。 */
+.cat-card .cat-img, .prod-card .pimg, .news-card .nc-img, .news-featured .nf-img { position: relative; overflow: hidden; }
+.cat-card .cat-img > picture, .prod-card .pimg > picture, .news-card .nc-img > picture,
+.news-featured .nf-img > picture { display: contents; }
+.cat-card .cat-img > picture > img, .prod-card .pimg > picture > img, .news-card .nc-img > picture > img,
+.news-featured .nf-img > picture > img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; display: block;
+}
+
+.filters-overview { margin: 4px 0 0; }
+.filters-overview img {
+  display: block; width: 100%; max-width: 1320px; height: auto; margin: 0 auto;
+  border-radius: var(--radius); box-shadow: var(--shadow); background: #fff;
+}
+.filters-overview a { display:block; }
+.filters-overview picture { display:block; }
+.filters-overview-hint {
+  text-align: center; font-size: 13px; color: var(--muted); margin: 12px 0 0;
+}
+
+/* ---------- 滤清器总览（2026-09-20：按用户海报 1:1 复刻成 HTML）----------
+   复刻的好处：① 与上面的产品卡同宽同边距，左右完全对齐（原图是 1254px 位图，会窄 18px）；
+   ② 文字（尤其 24 个品牌名）是真文本 → 四语可切换、可被搜索引擎收录。
+   装饰元素（类型圆图标 / 产品群图 / 三个实拍图 / 底部小图标）是从原海报裁出的 assets/web/fo/*，
+   文字全部在这里排版。颜色取自原海报。 */
+.fo {
+  background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 26px 30px 22px; text-align: center;
+}
+.fo-h {
+  margin: 0; font-size: clamp(22px, 3.6vw, 44px); line-height: 1.1; font-weight: 900;
+  letter-spacing: .3px; text-transform: uppercase; color: #0a3e7c;
+}
+.fo-sub { margin: 10px 0 0; font-size: clamp(15px, 1.75vw, 22px); font-weight: 800; color: #16233c; }
+.fo-lead { margin: 8px auto 0; max-width: 920px; font-size: 14.5px; line-height: 1.6; color: #46536a; }
+
+.fo-types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 4px; text-align: left; }
+.fo-type { display: flex; align-items: center; gap: 10px; padding: 0 12px; }
+.fo-type + .fo-type { border-left: 1px solid #e3e9f2; }
+.fo-type img { flex: 0 0 auto; border-radius: 50%; }
+.fo-tt { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.fo-tt b { font-size: 16.5px; line-height: 1.25; color: #10233f; }
+.fo-tt span { font-size: 13px; line-height: 1.4; color: #6b7789; }
+
+.fo-hero { margin: 4px 0 10px; }
+.fo-hero img { display: block; width: 100%; height: auto; }
+
+.fo-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: left; }
+.fo-cat { display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; background: #f7faff; }
+.fo-cat-h { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: #fff; }
+.fo-cat-h img { flex: 0 0 auto; }
+.fo-cat-h h4 { margin: 0; font-size: 16.5px; font-weight: 900; line-height: 1.1; text-transform: uppercase; letter-spacing: .3px; }
+.fo-cat-h p { margin: 3px 0 0; font-size: 12px; line-height: 1.3; opacity: .93; }
+.fo-cat-blue .fo-cat-h { background: #024f97; }
+.fo-cat-green .fo-cat-h { background: #189049; }
+.fo-cat-orange .fo-cat-h { background: #e38803; }
+.fo-brands { list-style: none; margin: 0; padding: 10px 12px 8px 14px; flex: 1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3px 8px; }
+.fo-brands li { position: relative; padding-left: 13px; font-size: 14.5px; font-weight: 700; color: #16233c; }
+.fo-brands li::before { content: ""; position: absolute; left: 0; top: .42em; width: 7px; height: 7px;
+  border-radius: 50%; background: #024f97; }
+.fo-cat-green .fo-brands li::before { background: #189049; }
+.fo-cat-orange .fo-brands li::before { background: #e38803; }
+.fo-photo { display: block; width: 100%; height: auto; margin-top: auto;
+  aspect-ratio: 400 / 128; object-fit: cover; }   /* 固定比例：三张实拍图高度绝对一致（原图宽度略有差异） */
+
+.fo-feats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0 2px; text-align: left; }
+.fo-feat { display: flex; align-items: center; gap: 10px; padding: 0 8px; }
+.fo-feat + .fo-feat { border-left: 1px solid #e3e9f2; }
+.fo-feat img { flex: 0 0 auto; border-radius: 10px; }
+.fo-feat .fo-tt b { font-size: 15px; }
+.fo-feat .fo-tt span { font-size: 12.5px; }
+
+.fo-foot { margin: 16px 0 0; display: flex; align-items: center; gap: 16px; justify-content: center;
+  font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #1b3b6b; }
+.fo-foot::before, .fo-foot::after { content: ""; height: 1px; flex: 1; background: #c9d6e8; }
+
+@media (max-width: 1100px) {
+  .fo-types, .fo-feats { grid-template-columns: 1fr 1fr; gap: 14px 10px; }
+  .fo-type + .fo-type, .fo-feat + .fo-feat { border-left: 0; }
+  .fo-cats { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .fo { padding: 18px 16px; }
+  .fo-types, .fo-feats { grid-template-columns: 1fr; }
+  .fo-type, .fo-feat { padding: 0; }
+}
+
+/* Filters brand grid（已下线，样式保留备用 —— 恢复品牌卡片列表时直接可用） */
+.filter-brand {
+  background:#fff; border:1px solid var(--line); border-radius: 14px;
+  overflow:hidden; margin-bottom: 22px; display:grid;
+  grid-template-columns: 240px 1fr; gap: 0;
+}
+.filter-brand .fb-logo {
+  background: var(--blue-soft); display:flex; flex-direction:column;
+  align-items:center; justify-content:center; padding: 18px; text-align:center;
+}
+.filter-brand .fb-logo .bname { font-weight: 800; color: var(--blue-dark); font-size: 20px; }
+.filter-brand .fb-logo .btag { font-size: 12px; color: var(--muted); margin-top:4px; }
+.filter-brand .fb-body { padding: 18px 20px; }
+.filter-brand .fb-imgs {
+  display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 12px;
+}
+.filter-brand .fb-imgs img {
+  width: 110px; height: 90px; object-fit: cover; border-radius: 8px;
+  border:1px solid var(--line); background:#eef2f7;
+}
+.filter-brand .fb-note { font-size: 14px; color: var(--ink); }
+.filter-brand .fb-chips { margin-top: 10px; display:flex; gap:8px; flex-wrap:wrap; }
+.fb-chips .chip {
+  font-size:12px; background: var(--yellow); color: var(--orange-dark);
+  padding: 4px 10px; border-radius: 16px; font-weight:600;
+}
+.filter-disclaimer {
+  background: var(--yellow); border:1px solid var(--yellow-2);
+  border-radius: 12px; padding: 16px 20px; color: var(--ink); font-size: 14px;
+  margin-top: 10px;
+}
+
+/* ---------- Customization process ---------- */
+.proc-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 40px;
+}
+.proc-step {
+  background:#fff; border-radius: 12px; padding: 22px 16px; text-align:center;
+  box-shadow: var(--shadow); position: relative;
+}
+.proc-step .pnum {
+  width: 46px; height:46px; border-radius:50%; background: var(--blue); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;
+  margin: 0 auto 12px;
+}
+.proc-step h4 { margin: 0 0 8px; color: var(--blue-dark); font-size: 16px; }
+.proc-step p { margin:0; color: var(--muted); font-size: 13px; }
+.proc-sample {
+  border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow);
+  max-width: 880px; margin: 0 auto;
+}
+.proc-sample img { width:100%; height:auto; }
+
+/* ---------- News (Notion 驱动) ---------- */
+.news-empty {
+  text-align:center; background:#fff; border:2px dashed var(--line);
+  border-radius: var(--radius); padding: 60px 30px; color: var(--muted);
+}
+.news-empty .ne-ic { font-size: 46px; margin-bottom: 12px; }
+.admin-note {
+  background: var(--blue-soft); border-left: 4px solid var(--blue);
+  border-radius: 8px; padding: 16px 20px; margin-top: 24px; font-size: 14px; color: var(--blue-dark);
+}
+.admin-note b { color: var(--blue-dark); }
+
+/* ---------- News list ---------- */
+.news-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+.news-card {
+  display: flex; flex-direction: column; background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden; text-decoration: none; color: inherit;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+/* 封面图区：用 4:3（= 站内封面的实际比例），整张显示、不裁切。
+   ⚠️ 原来固定 `height: 190px` + cover，卡片一宽就把封面上下切掉（用户反馈过「没显示完整」）；
+      4:3 图片区让 1448×1086 的封面完整呈现，产品不再被切头去尾，且显示比例与以前一致（不会变小）。 */
+.news-card .nc-img {
+  aspect-ratio: 4 / 3; background-size: cover; background-position: center;
+  background-color: var(--blue-soft);
+}
+.news-card .nc-body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.news-card .nc-top { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.news-card .nc-date { font-size: 13px; color: var(--muted); letter-spacing: .3px; }
+.news-card .ntag {
+  font-size: 12px; color: var(--blue-dark); background: var(--blue-soft);
+  border-radius: 20px; padding: 3px 10px; white-space: nowrap;
+}
+.news-card h3 { margin: 0; font-size: 19px; line-height: 1.38; color: var(--blue-dark); font-weight: 800; }
+.news-card p { margin: 0; font-size: 15px; line-height: 1.65; color: var(--muted); }
+.news-card .nc-more { margin-top: auto; padding-top: 6px; font-size: 14px; font-weight: 700; color: var(--orange-dark); }
+.news-card .nc-more::after { content: " \2192"; }
+
+/* ---------- News filters + featured ---------- */
+.section.tight { padding-top: 34px; }
+.news-filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+.news-chip {
+  border: 1px solid var(--line); background: #fff; color: var(--muted);
+  border-radius: 20px; padding: 7px 18px; font-size: 14px; font-weight: 600;
+  cursor: pointer; font-family: inherit; transition: all .15s ease;
+}
+.news-chip:hover { border-color: var(--blue); color: var(--blue-dark); }
+.news-chip.active { background: var(--blue-dark); border-color: var(--blue-dark); color: #fff; }
+
+.npin {
+  background: var(--orange); color: #fff; border-radius: 20px;
+  padding: 3px 11px; font-size: 12px; font-weight: 700; letter-spacing: .3px;
+}
+.ncat { border-radius: 20px; padding: 3px 11px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.ncat-news { background: var(--blue-soft); color: var(--blue-dark); }
+.ncat-blog { background: #e6f6ec; color: var(--green-dark); }
+
+.news-featured {
+  display: flex; align-items: stretch; background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden; text-decoration: none; color: inherit;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.news-featured:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.news-featured .nf-img {
+  flex: 0 0 46%; min-height: 310px; background-size: cover; background-position: center;
+  background-color: var(--blue-soft);
+}
+.news-featured .nf-body { flex: 1; min-width: 0; padding: 34px 40px 34px 38px; display: flex; flex-direction: column; gap: 12px; }
+.news-featured .nc-top { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.news-featured h2 { margin: 0; font-size: clamp(21px, 2.4vw, 28px); line-height: 1.32; color: var(--blue-dark); font-weight: 800; }
+.news-featured p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--muted); }
+.news-featured .nc-more { margin-top: auto; padding-top: 8px; font-size: 15px; font-weight: 700; color: var(--orange-dark); }
+.news-featured .nc-more::after { content: " \2192"; }
+
+/* ---------- News detail ---------- */
+.news-detail {
+  background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 40px 46px 44px; max-width: 860px; margin: 0 auto;
+}
+.news-detail .nd-cover { margin: 0 0 26px; }
+.news-detail .nd-cover img { width: 100%; height: auto; border-radius: 10px; display: block; }
+.news-detail .nd-body { color: var(--ink); font-size: 17px; line-height: 1.85; }
+.news-detail .nd-body p { margin: 0 0 18px; }
+.news-detail .nd-body h2 { color: var(--blue-dark); font-size: 24px; margin: 30px 0 14px; }
+.news-detail .nd-body h3 { color: var(--blue-dark); font-size: 20px; margin: 24px 0 12px; }
+.news-detail .nd-body ul, .news-detail .nd-body ol { margin: 0 0 18px; padding-left: 24px; }
+.news-detail .nd-body li { margin-bottom: 8px; }
+.news-detail .nd-body blockquote {
+  margin: 0 0 18px; padding: 14px 20px; background: var(--yellow);
+  border-left: 4px solid var(--orange); border-radius: 8px; color: var(--ink);
+}
+.news-detail .nd-body img { max-width: 100%; height: auto; border-radius: 10px; margin: 6px 0 20px; }
+.news-detail .nd-body figure { margin: 0 0 22px; }
+.news-detail .nd-body figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
+.news-detail .nd-body hr { border: 0; border-top: 1px solid var(--line); margin: 26px 0; }
+.news-detail .nd-body code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 15px; }
+.news-detail .nd-body pre { background: #20304a; color: #e8eefc; padding: 16px 18px; border-radius: 10px; overflow-x: auto; }
+/* 视频嵌入（16:9 响应式，源自 YouTube / Vimeo 等） */
+.news-detail .nd-body .video-embed {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+  border-radius: 10px; margin: 0 0 22px; background: #0d1b2a;
+}
+.news-detail .nd-body .video-embed iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+}
+.news-detail .nd-body table { width: 100%; border-collapse: collapse; margin: 0 0 20px; font-size: 15px; }
+.news-detail .nd-body th, .news-detail .nd-body td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; }
+.news-detail .nd-body th { background: var(--blue-soft); color: var(--blue-dark); font-weight: 700; }
+.news-detail .nd-hint { color: var(--muted); font-size: 15px; margin: 26px 0 0; }
+.news-detail .nd-notice {
+  background: var(--yellow); border-left: 4px solid var(--orange); border-radius: 8px;
+  padding: 12px 16px; margin-bottom: 24px; font-size: 14px; color: #7a4a06;
+}
+.news-detail .nd-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+.news-detail .nd-back { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); }
+.page-hero .nd-sub { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.page-hero .nd-sub .ntag {
+  font-size: 12px; background: rgba(255,255,255,.18); color: #fff;
+  border-radius: 20px; padding: 3px 10px;
+}
+.page-hero .nd-sub .ncat { background: rgba(255,255,255,.2); color: #fff; }
+.page-hero .nd-sub .npin { background: #fff; color: var(--orange-dark); }
+@media (max-width: 980px) {
+  .news-grid { grid-template-columns: repeat(2, 1fr); }
+  .news-featured .nf-img { flex: 0 0 42%; min-height: 260px; }
+  .news-featured .nf-body { padding: 28px 30px 28px 28px; }
+}
+@media (max-width: 720px) {
+  .news-grid { grid-template-columns: 1fr; gap: 20px; }
+  .news-featured { flex-direction: column; }
+  .news-featured .nf-img { flex: 0 0 auto; width: 100%; min-height: 210px; }
+  .news-featured .nf-body { padding: 20px 22px 24px; }
+  .news-detail { padding: 26px 20px 30px; }
+  .news-detail .nd-body { font-size: 16px; }
+}
+
+/* ---------- Contact ---------- */
+.contact-grid {
+  display:grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items:start;
+}
+.contact-card {
+  background:#fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px;
+}
+/* 两张卡的标题（2026-09-21 加）：原来两张卡都没有标题，
+   访客得自己从内容里猜哪张是联系方式、哪张是留言表单；也给页面补上 H2 层级 */
+.contact-card .cc-h {
+  margin: 0 0 18px; font-size: 19px; line-height: 1.3; color: var(--blue-dark);
+  padding-bottom: 12px; border-bottom: 1px solid var(--line);
+}
+.contact-info .ci-row { display:flex; gap: 12px; margin-bottom: 16px; align-items:flex-start; }
+/* 电脑端访客扫码用：没装 WhatsApp 客户端时点按钮会跳网页版要扫码登录，最容易流失 */
+.wa-qr {
+  display: flex; gap: 14px; align-items: center;
+  margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line);
+}
+.wa-qr img {
+  width: 132px; height: 132px; flex: 0 0 auto; border-radius: 10px;
+  border: 1px solid var(--line); background: #fff; padding: 6px;
+}
+.wa-qr p { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+.contact-info .ci-ic {
+  width: 40px; height:40px; border-radius:10px; background: var(--blue-soft); color: var(--blue);
+  display:flex; align-items:center; justify-content:center; font-size:18px; flex:none;
+}
+.contact-info .ci-row .ct { font-weight:700; color: var(--blue-dark); }
+.contact-info .ci-row .cv a { color: var(--ink); }
+/* 联系页照片带：整幅宽，排在「联系信息 / 留言表单」两列下方 ——
+   原本它挂在左栏里，左栏 = 信息卡 + 照片，比右栏的表单高出一大截，
+   表单底下会留 400 多 px 空白。移到整幅宽既消掉空白，照片也给得开。
+   ⚠️ height:auto 不能少：<img width height> 在 CSS 里是 presentational hint，
+      只覆盖 width 不覆盖 height 的话，图片会被非等比拉伸（实测 1.92:1 被压成 1.07:1）。 */
+.contact-photo { border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow); margin-top: 24px; }
+.contact-photo picture { display:block; }
+.contact-photo img { width:100%; height:auto; display:block; }
+
+.form-row { margin-bottom: 16px; }
+.form-row label { display:block; font-weight:600; margin-bottom: 6px; color: var(--blue-dark); }
+/* 反垃圾蜜罐：移到视口外隐藏。
+   刻意不用 display:none —— 部分机器人会识别并跳过隐藏字段，反而失效。 */
+.hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.form-row input:focus, .form-row textarea:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+.form-row input, .form-row textarea, .form-row select {
+  width:100%; padding: 11px 13px; border:1px solid var(--line); border-radius:10px;
+  font-size: 15px; font-family: inherit; background:#fff; color: var(--ink);
+}
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus {
+  outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft);
+}
+.form-row textarea { min-height: 110px; resize: vertical; }
+.form-note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.form-ok {
+  display:none; background: #e7f7ee; color: var(--green-dark);
+  border:1px solid #b7e6c9; border-radius: 10px; padding: 12px 16px; margin-top: 12px; font-weight:600;
+}
+
+/* ---------- Footer ---------- */
+footer.site {
+  background: var(--blue-dark);
+  color: #cdddf2;
+  padding: 44px 0 26px;
+  margin-top: 20px;
+}
+footer.site .f-grid {
+  display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 30px;
+}
+footer.site h4 { color:#fff; font-size: 16px; margin: 0 0 14px; }
+footer.site .f-name { font-size: 19px; font-weight:800; color:#fff; margin-bottom: 6px; }
+footer.site .f-name-cn { font-size: 15px; color:#bcd2ee; margin-bottom: 12px; }
+footer.site a { color:#cdddf2; }
+footer.site a:hover { color:#fff; }
+footer.site ul { list-style:none; padding:0; margin:0; }
+footer.site ul li { margin-bottom: 8px; }
+footer .f-bottom {
+  border-top: 1px solid rgba(255,255,255,0.14);
+  margin-top: 28px; padding-top: 16px; font-size: 13px; color:#9fb6d6;
+  /* 版权在左、法律链接在右；窄屏自动换行并居中 */
+  display: flex; flex-wrap: wrap; gap: 6px 20px;
+  align-items: center; justify-content: space-between;
+}
+.f-bottom .f-legal a { color: #9fb6d6; text-decoration: underline; text-underline-offset: 2px; }
+.f-bottom .f-legal a:hover { color: #fff; }
+@media (max-width: 640px) {
+  .f-bottom { justify-content: center; text-align: center; }
+}
+
+/* ===== 隐私政策等法律条款页 ===== */
+/* 版式目标：长文以可读性优先 —— 行宽限制 860px（超过约 75 个字符眼睛会跳行）、
+   行高放宽到 1.85，小节标题与正文之间留足间距，便于逐条阅读与打印。 */
+.legal-body { max-width: 860px; margin: 0 auto; line-height: 1.85; color: var(--ink); }
+.legal-body .legal-updated {
+  color: var(--muted); font-size: .92rem; margin: 0 0 26px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--line);
+}
+.legal-body h2 { font-size: 1.14rem; line-height: 1.45; margin: 32px 0 10px; color: var(--blue-dark); }
+.legal-body p { margin: 0 0 12px; }
+.legal-body ul { margin: 0 0 14px; padding-left: 22px; }
+.legal-body li { margin: 0 0 6px; }
+.legal-body strong.co { color: #c8102e; }
+.legal-body a { color: var(--blue); }
+.f-contact p { margin: 4px 0; font-size: 14px; }
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb { font-size: 13px; color: var(--muted); padding: 14px 0; }
+.breadcrumb a { color: var(--blue); }
+
+/* ---------- Page hero (inner pages) ---------- */
+.page-hero {
+  background: var(--blue);
+  color:#fff; padding: 40px 0;
+}
+.page-hero h1 { margin:0; font-size: clamp(24px,3.4vw,34px); font-weight:800; }
+.page-hero p { margin: 8px 0 0; color:#d6e4f6; max-width: 720px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .prod-grid { grid-template-columns: repeat(4,1fr); }   /* 一行 5 个在窄屏放不下 → 4 个 */
+}
+/* About：窄屏时正文卡片会横向压到两侧的圆图上 → 改成「整幅图置顶 + 正文下移」，
+   图片依然完整可见（除数 2.325 = about-banner.jpg 的宽高比，换图要同步）。
+   1250px 是算出来的：圆图内侧边在图片宽度的 13.9%（x=285/2048），卡片 880px 时
+   需 视口 ≥ 2×285×(视口/2048) / ... → 实测 1250px 起圆图才完全不被卡片压住 */
+@media (max-width: 1249px) {
+  .about-hero { padding-top: calc(100vw / 2.325 + 4px); }
+}
+@media (max-width: 980px) {
+  .cat-card .cat-img { height: 220px; }
+  .cat-grid, .prod-top3 { grid-template-columns: 1fr 1fr; }
+  .prod-grid { grid-template-columns: repeat(3,1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .home-strip { grid-template-columns: 1fr 1fr; }
+  .proc-grid { grid-template-columns: 1fr 1fr; }
+  .filter-brand { grid-template-columns: 1fr; }
+  .filter-brand .fb-logo { flex-direction: row; gap: 12px; justify-content: flex-start; }
+  footer.site .f-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .topbar .tb-left { display:none; }
+  .nav-toggle { display:block; }
+  .nav {
+    display:none; position: absolute; top: var(--nav-h); left:0; right:0;
+    background:#fff; flex-direction:column; padding: 10px; box-shadow: var(--shadow);
+    border-top:1px solid var(--line);
+  }
+  .nav.open { display:flex; }
+  .nav a { width:100%; }
+  .cat-grid, .prod-top3, .home-strip, .proc-grid { grid-template-columns: 1fr; }
+  /* 产品卡：手机端保留两列（图片可再小），只在小屏收成一列 */
+  .prod-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .prod-card .pbody { padding: 10px 10px 12px; }
+  .prod-card h4 { font-size: 16px; }
+  .prod-card .prow { gap: 6px; }
+  .prod-card .prow .btn { padding:5px 8px; font-size:12px; }
+  /* 手机端：优势项改为「图标在左、文字在右」，避免四张大卡竖排过长 */
+  .home-strip .item { flex-direction: row; align-items: center; text-align: left; gap: 14px; padding: 16px 18px; }
+  .home-strip .item .ico { width: 52px; height: 52px; }
+  .home-strip .item .ico img { width: 30px; height: 30px; }
+  .home-strip .item .lbl { font-size: 17px; }
+  .cat-card .cat-img { height: 200px; }
+  .adv-list { grid-template-columns: 1fr; }
+  /* About 正文：手机端略缩小，行距保持宽松 */
+  .about-text-body { font-size: 17px; line-height: 1.85; }
+  footer.site .f-grid { grid-template-columns: 1fr; }
+  .hero { min-height: clamp(440px, 50vw, 78vh); }
+}

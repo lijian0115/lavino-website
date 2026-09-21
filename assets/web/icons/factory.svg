@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none"
+     stroke="#d96a08" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 工厂：制造经验 -->
+  <path d="M5 41h38" />
+  <path d="M7 41V25l9-5v5l9-5v5l9-5v21" />
+  <rect x="12" y="31" width="6" height="6" rx="1.2" />
+  <rect x="23" y="31" width="6" height="6" rx="1.2" />
+</svg>
