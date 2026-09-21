@@ -478,15 +478,39 @@ header.site {
 /* ---------- 产品页 FAQ（2026-09-21）----------
    形态故意做得"像答案"而不是"像营销"：一问一答、短句、可折叠。
    搜索引擎和 AI 助手要的就是能被直接摘出来的答案段落。 */
-.faq { margin-top: 44px; max-width: 880px; margin-left: auto; margin-right: auto; }
-.faq h2 { font-size: clamp(20px, 2.4vw, 26px); color: var(--blue-dark); margin: 0 0 6px; }
-.faq-lead { color: var(--muted); margin: 0 0 18px; }
-.faq-list { display: flex; flex-direction: column; gap: 10px; }
+/* 常见问题（2026-09-21 从产品页独立成 faq.html）：
+   独立成页后 .faq-list 是顶层元素，原来挂在 .faq 上的窄栏约束挪到它身上。
+   页宽 1160px 时排成一列 880px 比铺满好读得多（一行上百字符会让人跳行）。 */
+.faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 880px; margin: 0 auto; }
+/* 页尾引导：看完问答还有疑问是常态，直接给两条最快的路 */
+.faq-cta {
+  max-width: 880px; margin: 36px auto 0; padding: 26px 28px; text-align: center;
+  background:#fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.faq-cta p { margin: 0 0 16px; color: var(--blue-dark); font-weight: 600; }
+/* 产品页底部的引导条：把「看完产品还想了解合作」的访客送去常见问题页 */
+.faq-teaser {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  margin-top: 40px; padding: 22px 26px; background: var(--blue-soft); border-radius: var(--radius);
+}
+.faq-teaser .ft-txt { display: flex; flex-direction: column; gap: 4px; }
+.faq-teaser .ft-txt strong { color: var(--blue-dark); font-size: 17px; }
+.faq-teaser .ft-txt span { color: var(--muted); font-size: 14.5px; line-height: 1.6; }
+.faq-teaser .btn { flex: 0 0 auto; }
+@media (max-width: 640px) {
+  /* 窄屏改竖排，按钮占满一整行更好点 */
+  .faq-teaser { flex-direction: column; align-items: stretch; padding: 20px; }
+  .faq-teaser .btn { justify-content: center; }
+}
 .faq-item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
 .faq-item summary {
   cursor: pointer; list-style: none; padding: 15px 18px;
   font-weight: 700; color: var(--blue-dark); font-size: 15.5px; line-height: 1.5;
 }
+/* 问题写成了 <h2>（语义正确），但样式必须还原成 inline：
+   块级 h2 会独占一行，把 summary 右侧的 +/− 号挤到下一行去。
+   font: inherit 让标题沿用 summary 的字号/字重，视觉上与改之前完全一致。 */
+.faq-item summary h2 { display: inline; font: inherit; color: inherit; margin: 0; padding: 0; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after { content: "−"; float: right; color: var(--muted); font-weight: 400; }
 .faq-item:not([open]) summary::after { content: "+"; }
@@ -785,12 +809,21 @@ header.site {
 }
 
 /* ---------- Contact ---------- */
+/* 两栏等高（2026-09-21 修）：原来写 align-items:start，两张卡各按自身内容定高，
+   实测左卡 644.6px、右卡 728px，底部差 83px —— 肉眼就是"两个方框不一样高，很丑"。
+   改成 stretch 后两卡自动等高。（前提：两张卡必须都是 .contact-grid 的直接子元素，
+   中间再套一层 <div> 的话，被拉伸的只是那层壳。） */
 .contact-grid {
-  display:grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items:start;
+  display:grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items:stretch;
 }
 .contact-card {
   background:#fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px;
 }
+/* 左卡改成纵向弹性布局，好让二维码块被顶到底部（见 .ci-grow） */
+.contact-info { display:flex; flex-direction:column; }
+.contact-info > * { flex: 0 0 auto; }
+/* 弹性占位：吸收"左卡比右卡矮"的那部分高度。单列窄屏没有富余空间 → 高度 0，不影响版式。 */
+.ci-grow { flex: 1 1 auto; min-height: 0; }
 /* 两张卡的标题（2026-09-21 加）：原来两张卡都没有标题，
    访客得自己从内容里猜哪张是联系方式、哪张是留言表单；也给页面补上 H2 层级 */
 .contact-card .cc-h {

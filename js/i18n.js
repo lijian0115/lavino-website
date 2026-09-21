@@ -24,6 +24,12 @@ window.LAVINO_I18N = {
   "es": "Proceso de personalización",
   "ru": "Процесс под заказ"
  },
+ "nav_faq": {
+  "en": "FAQ",
+  "zh": "常见问题",
+  "es": "Preguntas frecuentes",
+  "ru": "Вопросы"
+ },
  "nav_news": {
   "en": "News & Blog",
   "zh": "新闻与博客",
@@ -89,6 +95,18 @@ window.LAVINO_I18N = {
   "zh": "发送邮件",
   "es": "Envíenos correo",
   "ru": "Написать нам"
+ },
+ "btn_faq_all": {
+  "en": "Read all FAQs",
+  "zh": "查看全部常见问题",
+  "es": "Ver todas las preguntas",
+  "ru": "Все вопросы"
+ },
+ "faq_teaser": {
+  "en": "Brands we cover, OEM service, how to request a quotation — answered in short.",
+  "zh": "覆盖品牌、OEM 定制、怎么获取报价 —— 都有简短直接的答案。",
+  "es": "Marcas cubiertas, servicio OEM y cómo pedir una cotización, con respuestas breves.",
+  "ru": "Марки, OEM-услуги и как получить предложение — короткие прямые ответы."
  },
  "home_hero_title": {
   "en": "Agricultural machinery, parts & filters — supplied from Qingdao, China",
@@ -563,6 +581,54 @@ window.LAVINO_I18N = {
   "zh": "把需求发给我们 —— 机型、零件号，或零件照片 —— 邮件 sales@lavinoequip.com 或 WhatsApp +86 151 9255 7460，我们通常在一个工作日内回复。",
   "es": "Envíenos su consulta — modelo de máquina, número de pieza o una foto — por correo a sales@lavinoequip.com o por WhatsApp al +86 151 9255 7460. Solemos responder en un día laborable.",
   "ru": "Пришлите запрос — модель техники, номер детали или фото — на sales@lavinoequip.com или в WhatsApp +86 151 9255 7460. Обычно отвечаем в течение рабочего дня."
+ },
+ "faq_q5": {
+  "en": "",
+  "zh": "",
+  "es": "",
+  "ru": ""
+ },
+ "faq_a5": {
+  "en": "",
+  "zh": "",
+  "es": "",
+  "ru": ""
+ },
+ "faq_q6": {
+  "en": "",
+  "zh": "",
+  "es": "",
+  "ru": ""
+ },
+ "faq_a6": {
+  "en": "",
+  "zh": "",
+  "es": "",
+  "ru": ""
+ },
+ "faq_q7": {
+  "en": "",
+  "zh": "",
+  "es": "",
+  "ru": ""
+ },
+ "faq_a7": {
+  "en": "",
+  "zh": "",
+  "es": "",
+  "ru": ""
+ },
+ "faq_q8": {
+  "en": "",
+  "zh": "",
+  "es": "",
+  "ru": ""
+ },
+ "faq_a8": {
+  "en": "",
+  "zh": "",
+  "es": "",
+  "ru": ""
  },
  "prod_filter_lead": {
   "en": "We supply air, oil, fuel and hydraulic filters compatible with major construction and agricultural brands, including replacement filters for excavators.",
@@ -1613,6 +1679,7 @@ window.LAVINO_COMPANY = {
   "nav_home",
   "nav_about",
   "nav_products",
+  "nav_faq",
   "nav_news",
   "nav_contact"
  ],
@@ -1620,6 +1687,7 @@ window.LAVINO_COMPANY = {
   "nav_home": "index.html",
   "nav_about": "about.html",
   "nav_products": "products.html",
+  "nav_faq": "faq.html",
   "nav_news": "news.html",
   "nav_contact": "contact.html"
  }

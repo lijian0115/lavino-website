@@ -22,7 +22,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="css/style.css?v=abe776eb" />
+  <link rel="stylesheet" href="css/style.css?v=a943d93d" />
   <link rel="icon" type="image/png" sizes="180x180" href="assets/web/logo-icon.png" />
   <script type="application/ld+json">
 {
@@ -74,6 +74,7 @@
       <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
 <a href="about.html" class="nav-link" data-i18n="nav_about">About us</a>
 <a href="products.html" class="nav-link" data-i18n="nav_products">Products</a>
+<a href="faq.html" class="nav-link" data-i18n="nav_faq">FAQ</a>
 <a href="news.html" class="nav-link" data-i18n="nav_news">News & Blog</a>
 <a href="contact.html" class="nav-link active" data-i18n="nav_contact">Contact us</a>
 
@@ -96,8 +97,10 @@
     </div></section>
     <section class="section"><div class="container">
       <div class="contact-grid">
-        <div>
-          <div class="contact-card contact-info">
+        <!-- ⚠️ 左侧卡片必须是 .contact-grid 的**直接子元素**：早先这里多套了一层 <div>，
+             网格的 align-items 只能拉伸这层壳，里面的卡片仍是自身高度 ——
+             结果左卡 644.6px、右卡 728px，底部差 83px，肉眼就是「两个方框不一样高」。 -->
+        <div class="contact-card contact-info">
             <h2 class="cc-h" data-i18n="contact_info_h">Contact information</h2>
             <div class="ci-row"><div class="ci-ic">👤</div><div><div class="ct" data-i18n="contact_manager">General Manager</div><div class="cv">Fátima Ma</div></div></div>
             <div class="ci-row"><div class="ci-ic">📱</div><div><div class="ct">WhatsApp</div><div class="cv"><a href="https://wa.me/8615192557460?text=Hello%20Lavino%2C%20I%27m%20interested%20in%20your%20agricultural%20machinery%2C%20parts%20and%20filters.%20Could%20you%20send%20me%20more%20details%3F" data-wa-text="wa_text" target="_blank" rel="noopener">+86 151 9255 7460</a></div></div></div>
@@ -107,12 +110,15 @@
               <a class="btn btn-green" href="https://wa.me/8615192557460?text=Hello%20Lavino%2C%20I%27m%20interested%20in%20your%20agricultural%20machinery%2C%20parts%20and%20filters.%20Could%20you%20send%20me%20more%20details%3F" data-wa-text="wa_text" target="_blank" rel="noopener" data-i18n="btn_whatsapp">Chat on WhatsApp</a>
               <a class="btn btn-blue" href="mailto:sales@lavinoequip.com" data-i18n="btn_mail">Email us</a>
             </div>
+            <!-- 弹性占位：把下方二维码块顶到卡片底部。
+                 卡片被拉高到与右卡等高时，多出来的空白落在这里（分隔线上方），
+                 而不是在卡片底部留一块没内容的死白。窄屏单列时无富余空间，高度为 0，等于不存在。 -->
+            <div class="ci-grow" aria-hidden="true"></div>
             <!-- 电脑端访客：没装 WhatsApp 客户端时点链接会跳去网页版要扫码登录，最容易流失，所以给个二维码 -->
             <div class="wa-qr">
               <img src="assets/web/wa-qr-en.png" data-wa-qr="en" alt="WhatsApp QR code" width="370" height="370" loading="lazy" />
               <p data-i18n="wa_qr_hint">On a computer? Scan this code with your phone — WhatsApp opens with the message already written, just press send.</p>
             </div>
-          </div>
         </div>
         <div class="contact-card">
           <h2 class="cc-h" data-i18n="contact_form_h">Send us a message</h2>
@@ -183,6 +189,7 @@
         <h4 data-i18n="foot_quick">Quick links</h4>
         <ul>
           <li><a href="about.html" data-i18n="nav_about">About us</a></li>
+          <li><a href="faq.html" data-i18n="nav_faq">FAQ</a></li>
           <li><a href="news.html" data-i18n="nav_news">News & Blog</a></li>
           <li><a href="contact.html" data-i18n="nav_contact">Contact us</a></li>
         </ul>
@@ -196,7 +203,7 @@
     </div>
   </div>
 </footer>
-<script src="js/i18n.js?v=80e14c91"></script>
-<script src="js/main.js?v=80e14c91"></script>
+<script src="js/i18n.js?v=8bf27389"></script>
+<script src="js/main.js?v=8bf27389"></script>
 </body>
 </html>
